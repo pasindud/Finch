@@ -1,7 +1,7 @@
 #[Finch](http://github.com/pasindud)
 =====
 
-Ideamart SMS and USSD Testing framework.
+Ideamart SMS and USSD Testing Framework.
 ***
 ![Finch UI](http://s13.postimg.org/rbyudk0pz/tests.png)
 ###Note
