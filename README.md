@@ -3,7 +3,7 @@
 
 Ideamart SMS and USSD Testing framework.
 ***
-
+![Finch UI](http://s13.postimg.org/rbyudk0pz/tests.png)
 ###Note
 * Test.php and testserver.php must be on the same folder.
 * Goto index.html and link test.php to run the tests.
