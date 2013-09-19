@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #[Finch](http://github.com/pasindud)
 =====
 
@@ -45,4 +44,3 @@ Ideamart SMS and USSD Testing framework.
 =======
 Finch
 =====
->>>>>>> d10be08fe3bf5d6f713917d00a383066820d1ab9
