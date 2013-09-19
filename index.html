@@ -1,0 +1,102 @@
+<!--
+ // ==========================================
+// Finch Ideamart Apps Testing Framwork
+// ==========================================
+// Author : Pasindu De Silva
+// Licence : MIT License
+// http://opensource.org/licenses/MIT
+// ==========================================
+ -->
+ <html>
+<head>
+	<title>Finch</title>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/covershot.css">
+	<link rel="stylesheet" type="text/css" href="css/shCore.css">
+	<link rel="stylesheet" type="text/css" href="css/shThemeDefault.css">
+  <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'> </script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
+
+</head>
+<body>
+	<div id="topContainer">
+      <div id="topBar">
+        <div id="topBarContent">
+          <p class="left">Finch</p> 
+          <p class="right"><a href="index.html" class="selectedFeature">Done By</a><a href="http://pasindu.us">Pasindu De Silva</a></p>
+        </div>
+      </div>
+      <div id="bottomBar">
+       <div class="holder">
+          <ul class="summary">
+            <li>
+              <span class="coverageData" id="totaltests">0</span>
+              <p>Total Tests</p>
+            </li>
+            <li>
+              <span class="coverageData" id="passes">0</span>
+              <p>Passes</p>
+            </li>
+            <li>
+              <span class="coverageData" id="fails">0</span>
+              <p>Fails</p>
+            </li>
+            <li  <span class="coverageData" id="fails">Test Url</span><p><input id="testurl" type="text" placeholder="Enter the test file" ></p>
+            </li>
+            <li><a href="#"  id='runtests' onclick="runtest()" class="classname">Run Tests</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+     <div id="testtable"></div>
+
+  <script type="text/javascript">
+
+  function runtest () {
+      var testurl = document.getElementById("testurl").value;
+      document.getElementById("runtests").innerHTML="Running";
+      document.getElementById("runtests").disabled = true;
+      $.post(testurl,{} ,
+        function(datap, textStatus, jqXHR){
+          if (textStatus=="success") {
+
+            console.log(datap);
+              $.getJSON(datap, function(data) {
+
+               var ss=' <div id="bodyWrapper"><section id="bod"><section id="mainContent"><table id="files"><thead><tr><th>#</th><th class="number">Test</th><th class="number">Expect</th> <th class="number">Real</th><th>Status</th></tr> </thead><tbody> {{#names}}{{#name}}<tr><td>{{testid}}</td><td>{{tests}}</td><td>{{expect}}</td><td><p>{{real}}</p></td><td data-sort-value""><div class="smplContainer"> <div class="smplSubject" style="width: {{status}}%"></div></div><p class="coverageParagraph"></p></td></tr>{{/name}}{{/names}}</tbody></table></section></section></div>';
+
+              var template = Handlebars.compile(ss);
+              datas={names:data.tests};
+
+              document.getElementById("testtable").innerHTML = template(datas);
+              document.getElementById("passes").innerHTML = data.passes;
+              document.getElementById("fails").innerHTML = data.fails;
+              document.getElementById("totaltests").innerHTML = data.fails+data.passes;
+              document.getElementById("runtests").innerHTML="Run Tests";
+              document.getElementById("runtests").disabled = false; 
+          });
+          }else{
+              document.getElementById("runtests").innerHTML="Test Errors";
+              document.getElementById("runtests").disabled = true; 
+          }
+
+
+
+      });
+
+  }
+
+  var data;
+  $(function() {
+  
+
+   })
+
+
+
+    </script>
+
+</body>
+</html>
