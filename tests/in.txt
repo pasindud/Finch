@@ -1,0 +1,3 @@
+{"applicationId":"APP_000001","password":"Password","message":"Welcome \nSelect your T shirt sizes\n1. Small\n2. Medium\n3. Large","destinationAddress":"tel:94771122336","sessionId":"233407506","ussdOperation":"mo-cont","encoding":"440"}
+{"applicationId":"APP_000001","password":"Password","message":"You have select small confirm press 1","destinationAddress":"tel:94771122336","sessionId":"233407506","ussdOperation":"mo-cont","encoding":"440"}
+{"applicationId":"APP_000001","password":"Password","message":"Thank you for confirming","destinationAddress":"tel:94771122336","sessionId":"233407506","ussdOperation":"mo-cont","encoding":"440"}
